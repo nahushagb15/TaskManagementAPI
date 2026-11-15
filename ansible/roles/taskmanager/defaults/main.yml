@@ -1,0 +1,5 @@
+---
+app_name: taskmanagement-api
+app_port: 8081
+docker_image: taskmanagement-api:v1
+container_name: taskmanagement-api-ansible

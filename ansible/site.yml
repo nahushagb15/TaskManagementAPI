@@ -1,0 +1,7 @@
+---
+- name: Configure Task Management API
+  hosts: local
+  become: false
+
+  roles:
+    - taskmanager

@@ -1,0 +1,4 @@
+---
+- name: Docker image built
+  debug:
+    msg: "Task Management API Docker image has been built successfully!"

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskmanagement-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: taskmanagement-api
+  template:
+    metadata:
+      labels:
+        app: taskmanagement-api
+    spec:
+      containers:
+        - name: taskmanagement-api
+          image: taskmanagement-api:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 8081
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 8081
+            initialDelaySeconds: 20
+            periodSeconds: 10
